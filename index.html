@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIU Alumni Portal</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="join-alumni.css">
+</head>
+<body>
+
+    <!-- a) Home Page  Header and Nav -->
+    <header class="main-header">
+        <div class="container navbar">
+            <div class="logo-container">
+                <img id="daffodil-logo" src="daffodil-logo.png" alt="Daffodil">
+                <span class="logo-text">DIU Alumni</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About Us</a>
+                <a href="#stories">Stories</a>
+                <a href="#directory">Directory</a>
+                <a href="#careers">Career</a>
+                <a href="javascript:void(0)" onclick="openContactModal()">Contact</a>
+
+                <div class="user-profile-wrapper">
+        <div class="nav-profile-trigger" onclick="toggleProfileMenu(event)">
+            <span class="user-initials-avatar">FH</span>
+            <span class="nav-username">Fahimul</span>
+            <span class="dropdown-caret">&#9662;</span>
+        </div>
+        
+        <div id="profileDropdown" class="profile-dropdown-menu">
+            <div class="dropdown-user-info">
+                <strong>Fahimul Haque</strong>
+                <span>Batch of 2018</span>
+            </div>
+            <hr class="dropdown-divider">
+            <a href="#profile-settings">👤 View Profile</a>
+            <a href="#dashboard">📊 Alumni Dashboard</a>
+            <a href="#settings">⚙️ Account Settings</a>
+            <hr class="dropdown-divider">
+            <a href="#logout" class="logout-link">🚪 Sign Out</a>
+        </div>
+      </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <section id="home" class="hero-banner">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <span class="hero-subtitle">Welcome Back, Daffodil Alumni!</span>
+            <h1 class="hero-title">Bridging Memories, Inspiring Futures</h1>
+            <p class="hero-description">
+                Reconnect with your alma mater, network with fellow green-campus graduates, 
+                and explore endless career opportunities. Your success story continues here.
+            </p>
+            <div class="cta-container">
+                <a href="javascript:void(0)" onclick="openRegisterModal()" class="btn btn-primary">Join Alumni Network</a>
+                <a href="#stories" class="btn btn-secondary">Explore Stories</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- b) About Alumni Association Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Our Alumni Association</h2>
+                <div class="heading-line"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Our Mission</h3>
+                    <p>To foster lifelong connections between Daffodil International University and its alumni, creating a mutually beneficial network of support, mentorship, and continuous growth.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Vision</h3>
+                    <p>To build a globally recognized, highly engaged alumni community that actively contributes to the innovation, academic excellence, and heritage of DIU.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Our Objectives</h3>
+                    <p>Foster networking and mentorship, promote career growth, celebrate alumni achievements, and support current students through scholarships, talks, and internship pipelines.</p>
+                </div>
+                <div class="about-card">
+                    <h3>Contribution to DIU</h3>
+                    <p>Alumni-funded labs, guest lectures, recruitment drives, and an annual homecoming that channels experience and resources back into the university that shaped them.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- c) Alumni Success Stories Section, using Grid Layout -->
+    <section id="stories" class="stories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Alumni Success Stories</h2>
+                <div class="heading-line"></div>
+            </div>
+            
+            <div class="stories-grid">
+                <!-- story box 1 -->
+                <div class="story-card">
+                    
+                     <img class="story-pic" src="Fahim.JPG" alt="">
+                    <div class="story-content">
+                        <span class="alumni-tag">Batch of 2018</span>
+                        <h3>Fahimul Haque</h3>
+                        <p class="alumni-role">Lead AI Engineer at Haura AI</p>
+                        <p class="alumni-quote">"DIU gave me the practical foundation and mindset needed to scale global software systems."</p>
+                    </div>
+                </div>
+
+                <!-- Story box 2 -->
+                <div class="story-card">
+                    <img class="story-pic" src="girl-pic.avif" alt="">
+                    <div class="story-content">
+                        <span class="alumni-tag">Batch of 2015</span>
+                        <h3>Anika Tasnim</h3>
+                        <p class="alumni-role">Data Scientist at Finance Hub</p>
+                        <p class="alumni-quote">"The mentorship programs within the DIU alumni community paved my career path into big data."</p>
+                    </div>
+                </div>
+
+                <!-- Story box 3 -->
+                <div class="story-card">
+                    <img class="story-pic" src="boy-pic.avif" alt="">
+                    <div class="story-content">
+                        <span class="alumni-tag">Batch of 2020</span>
+                        <h3>Mashiat Islam</h3>
+                        <p class="alumni-role">Tech Entrepreneur & Founder</p>
+                        <p class="alumni-quote">"The incubation hub at DIU nurtured my startup idea. Today, we employ over 50 graduates."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                <!--      Directory.       -->
+    <section id="directory" class="directory-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Alumni Directory</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="directory-filter">
+                <input type="text" placeholder="Search by name...">
+                <select>
+                    <option>All Departments</option>
+                    <option>CSE</option>
+                    <option>CIS</option>
+                    <option>SWE</option>
+                    <option>EEE</option>
+                    <option>BBA</option>
+                </select>
+                <button class="">Search</button>
+            </div>
+            
+            <div class="directory-grid">
+                <div class="directory-card">
+                    <div class="avatar-placeholder">
+                        <span class="initials">FH</span>
+                        
+                    </div>
+                    <div class="directory-content">
+                        <h3>Fahimul Haque</h3>
+                        <span class="dept-tag">CIS • Batch of 2018</span>
+                        <p class="job-title">Senior AI Engineer</p>
+                        <p class="company-name">Haura AI</p>
+                        <a href="#" class="btn-view">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="directory-card">
+                    <div class="avatar-placeholder">
+                        <span class="initials">MJ</span>
+                    </div>
+                    <div class="directory-content">
+                        <h3>Mourin Jahan</h3>
+                        <span class="dept-tag">BBA • Batch of 2019</span>
+                        <p class="job-title">HR Specialist</p>
+                        <p class="company-name">Haura AI</p>
+                        <a href="#" class="btn-view">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="directory-card">
+                    <div class="avatar-placeholder">
+                        <span class="initials">TM</span>
+                    </div>
+                    <div class="directory-content">
+                        <h3>Tanvir Mahmud</h3>
+                        <span class="dept-tag">SWE • Batch of 2022</span>
+                        <p class="job-title">DevOps Engineer</p>
+                        <p class="company-name">Haura AI</p>
+                        <a href="#" class="btn-view">View Profile</a>
+                    </div>
+                </div>
+
+                <div class="directory-card">
+                    <div class="avatar-placeholder">
+                        <span class="initials">NK</span>
+                    </div>
+                    <div class="directory-content">
+                        <h3>Nusrat Khan</h3>
+                        <span class="dept-tag">EEE • Batch of 2020</span>
+                        <p class="job-title">Automation Consultant</p>
+                        <p class="company-name">Energypac Ltd.</p>
+                        <a href="#" class="btn-view">View Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="careers" class="careers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Career Opportunities</h2>
+                <div class="heading-line"></div>
+            </div>
+
+            <div class="career-filter">
+                <input type="text" placeholder="Search by Job Title or Keyword...">
+                <select>
+                    <option>All Job Types</option>
+                    <option>Full-time</option>
+                    <option>Part-time</option>
+                    <option>Remote</option>
+                    <option>Internship</option>
+                </select>
+                <button class="btn-filter-search">Find Jobs</button>
+            </div>
+            
+            <div class="jobs-list">
+                
+                <div class="job-card">
+                    <div class="job-main-info">
+                        <div class="company-logo-placeholder">HA</div>
+                        <div>
+                            <h3 class="job-title-link">Senior Full Stack Developer</h3>
+                            <p class="company-location">Haura AI • Dhaka (Hybrid)</p>
+                            <div class="job-meta-tags">
+                                <span class="job-tag type-fulltime">Full-time</span>
+                                <span class="job-tag dept-req">CSE / SWE</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-action-area">
+                        <span class="job-posted-date">Posted 2 days ago</span>
+                        <a href="#" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-main-info">
+                        <div class="company-logo-placeholder">EP</div>
+                        <div>
+                            <h3 class="job-title-link">Electrical Project Engineer</h3>
+                            <p class="company-location">Energypac Ltd. • Khulna (On-site)</p>
+                            <div class="job-meta-tags">
+                                <span class="job-tag type-fulltime">Full-time</span>
+                                <span class="job-tag dept-req">EEE</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-action-area">
+                        <span class="job-posted-date">Posted 1 week ago</span>
+                        <a href="#" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-main-info">
+                        <div class="company-logo-placeholder">FH</div>
+                        <div>
+                            <h3 class="job-title-link">Junior Data Analyst (Internship)</h3>
+                            <p class="company-location">Haura AI • Dhaka</p>
+                            <div class="job-meta-tags">
+                                <span class="job-tag type-intern">Internship</span>
+                                <span class="job-tag dept-req">CIS / CSE</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-action-area">
+                        <span class="job-posted-date">Posted Just now</span>
+                        <a href="#" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+
+                <div class="job-card">
+                    <div class="job-main-info">
+                        <div class="company-logo-placeholder">DIU</div>
+                        <div>
+                            <h3 class="job-title-link">Research Assistant</h3>
+                            <p class="company-location">Daffodil International University • Ashulia</p>
+                            <div class="job-meta-tags">
+                                <span class="job-tag type-parttime">Part-time</span>
+                                <span class="job-tag dept-req">Any Department</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="job-action-area">
+                        <span class="job-posted-date">Posted 3 days ago</span>
+                        <a href="#" class="btn-apply">Apply Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!--          contact option.     -->
+
+    <div id="contactModal" class="contact-modal">
+        <div class="contact-modal-content">
+            <span class="close-modal" onclick="closeContactModal()">&times;</span>
+            
+            <div class="contact-grid-layout">
+                <div class="contact-info-panel">
+                    <h3>Get In Touch</h3>
+                    <p>Have questions about alumni registration, events, or career updates? Reach out to us.</p>
+                    
+                    <div class="info-item">
+                        <strong>📍 Address:</strong>
+                        <p>Daffodil Smart City, Ashulia, Dhaka</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>✉️ Email:</strong>
+                        <p>alumni@daffodilvarsity.edu.bd</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>📞 Phone:</strong>
+                        <p>01785709966, 01985747267</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form-panel">
+                    <form action="#" onsubmit="event.preventDefault(); alert('Message Sent Successfully!'); closeContactModal();">
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>DIU Student ID / Alumni ID</label>
+                            <input type="text" placeholder="201-15-XXXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea rows="4" placeholder="How can we help you?" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-send-message">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+  <!--      join alumni    -->
+
+    <div id="registerModal" class="reg-modal">
+        <div class="reg-modal-content">
+            <span class="close-reg-modal" onclick="closeRegisterModal()">&times;</span>
+            
+            <div class="reg-header">
+                <h3>Alumni Registration</h3>
+                <p>Join the proud network of Daffodil International University graduates.</p>
+            </div>
+            
+            <form action="#" onsubmit="event.preventDefault(); alert('Registration Submitted Successfully! Awaiting Verification.'); closeRegisterModal();" class="reg-form">
+                <div class="reg-form-grid">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Student ID</label>
+                        <input type="text" placeholder="201-15-XXXX" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select required>
+                            <option value="" disabled selected>Select Department</option>
+                            <option>CSE</option>
+                            <option>SWE</option>
+                            <option>CIS</option>
+                            <option>EEE</option>
+                            <option>BBA</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Passing Year</label>
+                        <input type="number" min="2006" max="2026" placeholder=" 2022" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" placeholder="example@mail.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Current Profession / Job Title</label>
+                        <input type="text" placeholder="AI Engineer">
+                    </div>
+                </div>
+                
+                <div class="form-group term-checkbox">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I confirm that the information provided is correct and I am a graduate of DIU.</label>
+                </div>
+                
+                <button type="submit" class="btn-submit-reg">Submit Application</button>
+            </form>
+        </div>
+    </div>
+    <!--      footer       -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            
+            <div class="footer-brand">
+                <div class="footer-logo-area">
+                    <img src="daffodil-logo.png" alt="DIU Logo" class="footer-logo">
+                    <span class="footer-logo-text">DIU Alumni</span>
+                </div>
+                <p class="brand-desc">
+                    Bridging generations of Daffodil International University graduates. Together, we build innovation, support heritage, and inspire global leadership.
+                </p>
+            </div>
+
+            <div class="footer-links-panel">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#stories">Success Stories</a></li>
+                    <li><a href="#directory">Alumni Directory</a></li>
+                    <li><a href="#careers">Career Board</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-links-panel">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="javascript:void(0)" onclick="openRegisterModal()">Join Network</a></li>
+                    <li><a href="javascript:void(0)" onclick="openContactModal()">Help Support</a></li>
+                    <li><a href="#">Events Gallery</a></li>
+                    <li><a href="#">DIU Main Campus</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <div class="container bottom-bar-flex">
+                <p>&copy; 2026 Daffodil International University Alumni Association. All Rights Reserved.</p>
+                <div class="footer-legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="contact.js"></script>
+    <script src="join-alumni.js"></script>
+</body>
+</html>
