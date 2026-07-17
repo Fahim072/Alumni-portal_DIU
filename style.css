@@ -882,13 +882,13 @@ section, footer {
     }
 
     /* ৩. মেনু লিংকগুলোর ফুল উইডথ প্যানেল */
-  /* মোবাইলের মিডিয়া কোয়েরি ব্লকের ভেতরে এটি পেস্ট করুন */
+  
 @media (max-width: 768px) {
     .nav-links {
-        display: none !important; /* মোবাইলে ডিফল্টভাবে মেনুটি লুকিয়ে থাকবে */
+        display: none !important; 
         flex-direction: column;
         position: absolute;
-        top: 70px; /* আপনার হেডারের হাইট অনুযায়ী এটি কম-বেশি করতে পারেন */
+        top: 70px; 
         left: 0;
         width: 100% !important;
         background-color: #ffffff;
@@ -896,20 +896,20 @@ section, footer {
         padding: 15px 0;
         z-index: 999;
         box-sizing: border-box;
-        align-items: flex-start; /* মেনুর আইটেমগুলো বামে সারিবদ্ধ করার জন্য */
+        align-items: flex-start;
     }
 
     .nav-links a {
         display: block;
         width: 100%;
         padding: 12px 24px;
-        margin-left: 0; /* ডেস্কটপের মার্জিনটি মোবাইলে শূন্য করে দেওয়া হলো */
+        margin-left: 0; 
         box-sizing: border-box;
     }
 
     /* থ্রি-ডট বাটনে ক্লিক করলে মোবাইলে মেনু দেখানোর জন্য */
     .nav-links.active {
-        display: flex !important; /* এটি অবশ্যই 'flex' হিসেবে শো করবে */
+        display: flex !important;
     }
 }
 
@@ -1046,7 +1046,7 @@ section, footer {
 }
 
 /* Animations & Transitions */
-/* Hamburger অ্যানিমেশন ট্রানজিশন */
+
 .menu-toggle.open .bar:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
 }
