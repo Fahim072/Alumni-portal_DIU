@@ -968,3 +968,143 @@ section, footer {
     max-width: 100%;
     overflow-x: hidden;
 }
+
+@media (max-width: 768px) {
+    /* ১. মেইন হেডার এবং নেভবারকে একদম চিকন (Slim) করা */
+    .main-header {
+        position: sticky;
+        top: 0;
+        height: 60px; /* ফিক্সড স্লিম হাইট */
+        display: flex;
+        align-items: center;
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        width: 100%;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: row !important; /* লম্বালম্বি হওয়া বন্ধ করে এক লাইনে আনা */
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0 20px;
+        gap: 0;
+    }
+
+    /* লোগোর সাইজ মোবাইলে এডজাস্ট করা */
+    #daffodil-logo {
+        height: 32px;
+        width: auto;
+    }
+
+    .logo-text {
+        font-size: 1.1rem;
+    }
+
+    /* ২. মোবাইলে Hamburger Button স্টাইলিং */
+    .menu-toggle {
+        display: flex !important; /* বাটনটি মোবাইলে অবশ্যই দেখাবে */
+        flex-direction: column;
+        justify-content: space-between;
+        width: 22px;
+        height: 15px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        z-index: 1010;
+    }
+
+    .menu-toggle .bar {
+        width: 100%;
+        height: 2.5px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    /* ৩. মেনু আইটেমগুলোকে প্রথম অবস্থায় হাইড (লুকানো) রাখা */
+    .nav-links {
+        display: none; /* স্বাভাবিক অবস্থায় মেনু ঝুলবে না */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* ঠিক স্লিম হেডারের নিচে শুরু হবে */
+        left: 0;
+        width: 100%;
+        background-color: #ffffff;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        padding: 15px 0;
+        gap: 0;
+        z-index: 999;
+    }
+
+    /* যখন জাভাস্ক্রিপ্ট দিয়ে 'active' ক্লাস যুক্ত হবে তখন মেনু খুলবে */
+    .nav-links.active {
+        display: flex !important;
+        animation: slideDownMenu 0.25s ease-out forwards;
+    }
+
+    /* মেনুর ভেতরের লিংকের স্টাইল */
+    .nav-links a {
+        width: 100%;
+        text-align: center;
+        margin: 0 !important;
+        padding: 12px 0;
+        font-size: 15px;
+        border-bottom: 1px solid #f7fafc;
+    }
+
+    .nav-links a:last-of-type {
+        border-bottom: none;
+    }
+
+    /* ৪. ইউজার প্রোফাইল মোবাইলে মেনুর ভেতরে সুন্দরভাবে ফিট করা */
+    .user-profile-wrapper {
+        margin: 10px 0 0 0;
+        width: 100%;
+        padding: 10px 20px;
+        border-top: 1px solid #edf2f7;
+    }
+
+    .nav-profile-trigger {
+        justify-content: center;
+        background-color: var(--bg-light);
+        padding: 8px 12px;
+        border-radius: 8px;
+    }
+
+    .profile-dropdown-menu {
+        position: relative;
+        top: 8px;
+        right: 0;
+        width: 100%;
+        box-shadow: none;
+        border: 1px solid #edf2f7;
+    }
+}
+
+/* Hamburger অ্যানিমেশন ট্রানজিশন */
+.menu-toggle.open .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.menu-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.open .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+@keyframes slideDownMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
