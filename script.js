@@ -1,10 +1,7 @@
-// ১. গ্লোবাল প্রোফাইল ড্রপডাউন টগল ফাংশন (HTML এর onclick="toggleProfileMenu" এর জন্য)
-
 function toggleProfileMenu(event) {
   if (event) {
     event.stopPropagation();
   }
-
 
   const profileDropdown =
     document.getElementById("profileDropdown") ||
@@ -24,7 +21,6 @@ function toggleProfileMenu(event) {
 // ২. ডম (DOM) লোড হওয়ার পর মোবাইল ও গ্লোবাল ইভেন্ট হ্যান্ডলার
 
 document.addEventListener("DOMContentLoaded", function () {
-  
   const menuToggle =
     document.getElementById("mobile-menu-btn") ||
     document.querySelector(".menu-toggle");
@@ -35,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
     menuToggle.addEventListener("click", function (e) {
       e.stopPropagation();
 
-     
       menuToggle.classList.toggle("open");
       navLinks.classList.toggle("active");
     });
@@ -44,7 +39,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // ৩. গ্লোবাল ক্লিক (স্ক্রিনের যেকোনো ফাঁকা জায়গায় ক্লিক করলে মেনুগুলো বন্ধ হওয়া)
 
   document.addEventListener("click", function (e) {
-   ে
     if (menuToggle && navLinks) {
       if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
         menuToggle.classList.remove("open");
@@ -68,4 +62,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
