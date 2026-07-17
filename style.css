@@ -962,3 +962,9 @@ body {
         margin-right: 20px;
     }
 }
+
+/* হেডারের sticky-তে কোনো প্রভাব না ফেলে বডির নিচের সব সেকশন লক করা */
+section, footer {
+    max-width: 100%;
+    overflow-x: hidden;
+}
