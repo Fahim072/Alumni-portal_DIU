@@ -16,3 +16,13 @@ window.addEventListener("click", function () {
     dropdown.style.display = "none";
   }
 });
+
+const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+const navMenu = document.getElementById("nav-menu");
+
+if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener("click", function() {
+        navMenu.classList.toggle("active");
+        mobileMenuBtn.classList.toggle("open");
+    });
+}
