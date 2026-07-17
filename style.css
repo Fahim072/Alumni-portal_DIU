@@ -1,4 +1,5 @@
- :root {
+/*  Variables & Global Resets*/
+:root {
     --primary-color: #0d5c3a; 
     --secondary-color: #0f8a5f;
     --text-dark: #2d3748;
@@ -12,6 +13,18 @@
     box-sizing: border-box;
 }
 
+/* মোবাইল স্ক্রিনে ডানে চেপে থাকা বন্ধ করার জন্য গ্লোবাল ফিক্স */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--text-dark);
@@ -22,9 +35,10 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 } 
 
-/* Header */
+/* Typography & Common Elements */
 .section-header {
     text-align: center;
     margin-bottom: 50px;
@@ -75,17 +89,18 @@ body {
     color: var(--primary-color);
 } 
 
-/*  a) Home Page - Header & Hero Section  */
-
-#daffodil-logo{
+/*  Header & Navigation*/
+#daffodil-logo {
     height: 40px;
     width: 40px;
 }
+
 .main-header {
     background-color: white;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
+    width: 100%; 
     z-index: 1000;
 }
 
@@ -115,6 +130,11 @@ body {
     color: var(--primary-color);
 }
 
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
 .nav-links a {
     text-decoration: none;
     color: var(--text-dark);
@@ -127,7 +147,7 @@ body {
     color: var(--primary-color);
 }
 
-/* Hero Banner */
+/* Hero Banner Section*/
 .hero-banner {
     position: relative;
     background: url('daffodil-img.jpeg') no-repeat center center/cover;
@@ -172,7 +192,13 @@ body {
     opacity: 0.9;
 }
 
-/*  b) About Section Styling  */
+.cta-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* About Association Section*/
 .about-section {
     padding: 80px 0;
     background-color: var(--bg-light);
@@ -180,7 +206,7 @@ body {
 
 .about-grid {
     display: grid;
-    grid-template-columns: repeat(2,1fr); 
+    grid-template-columns: repeat(2, 1fr); 
     gap: 30px;
 }
 
@@ -191,7 +217,6 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     border-top: 5px solid var(--primary-color);
     transition: transform 0.3s ease;
-    flex: 1;
 }
 
 .about-card:hover {
@@ -208,7 +233,7 @@ body {
     color: var(--text-light);
 }
 
-/* c) Success Stories Grid Styling */
+/* Success Stories Grid Section*/
 .stories-section {
     padding: 80px 0;
     background-color: #ffffff;
@@ -233,18 +258,20 @@ body {
     border-color: var(--secondary-color);
 }
 
-.story-pic{
+.story-pic {
     height: 100px;
     width: 100px;
     border-radius: 50%;
     position: relative;
-    top: 10px;
-    left: 30px;
+    top: 15px;
+    left: 25px;
     border: 1px solid green;
+    object-fit: cover;
 }
 
 .story-content {
     padding: 25px;
+    margin-top: 10px;
 }
 
 .alumni-tag {
@@ -276,60 +303,11 @@ body {
     color: var(--text-light);
 }
 
-/*  d) Responsive Media Queriesm*/
-
-@media (max-width: 992px) {
-    .hero-title {
-        font-size: 2.8rem;
-    }
-    
-    .about-grid {
-        flex-direction: column; 
-    }
-}
-
-/* Mobile Viewports (Max-width: 768px) */
-@media (max-width: 768px) {
-    .navbar {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .nav-links a {
-        margin: 0 10px;
-    }
-
-    .hero-banner {
-        height: auto;
-        padding: 80px 20px;
-    }
-
-    .hero-title {
-        font-size: 2.2rem;
-    }
-
-    .cta-container {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-    }
-
-    .btn-secondary {
-        margin-left: 0;
-    }
-
-    .stories-grid {
-        grid-template-columns: 1fr; 
-    }
-}
-
-/* d) Alumni Directory Section Styling */
+/* Alumni Directory Section */
 .directory-section {
     padding: 60px 0;
     background-color: var(--bg-light); 
 }
-
 
 .directory-filter {
     display: flex;
@@ -347,7 +325,9 @@ body {
     font-size: 15px;
     min-width: 200px;
     color: var(--text-dark);
+    background-color: #ffffff;
 }
+
 .directory-filter button {
     background-color: var(--primary-color); 
     color: #ffffff;
@@ -359,6 +339,7 @@ body {
     cursor: pointer; 
     transition: background-color 0.2s ease;
 }
+
 .directory-filter button:hover {
     background-color: var(--secondary-color); 
 }
@@ -368,7 +349,6 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 25px; 
 }
-
 
 .directory-card {
     background: #ffffff;
@@ -385,7 +365,6 @@ body {
     box-shadow: 0 8px 25px rgba(13, 92, 58, 0.1); 
     border-color: var(--primary-color); 
 }
-
 
 .avatar-placeholder {
     width: 80px;
@@ -431,7 +410,6 @@ body {
     margin: 2px 0 20px 0;
 }
 
-/* Profile View Button */
 .btn-view {
     display: inline-block;
     padding: 8px 20px;
@@ -449,10 +427,10 @@ body {
     color: #fff;
 }
 
-/* e) Career Opportunities Section Styling  */
+/* Career Opportunities Section */
 .careers-section {
     padding: 80px 0;
-    background-color: #ffffff; /* Directory light background er por eti pure white layout dibe */
+    background-color: #ffffff;
 }
 
 .career-filter {
@@ -490,7 +468,6 @@ body {
     background-color: var(--secondary-color); 
 }
 
-/* Job List Card Layout (List pattern) */
 .jobs-list {
     display: flex;
     flex-direction: column;
@@ -565,7 +542,7 @@ body {
     font-weight: 600;
 }
 
-/* Dynamic job types badges */
+/* Job Badges colors */
 .type-fulltime { background-color: #ebf8ff; color: #2b6cb0; }
 .type-intern { background-color: #feebc8; color: #c05621; }
 .type-parttime { background-color: #faf5ff; color: #6b46c1; }
@@ -599,168 +576,7 @@ body {
     background-color: var(--secondary-color);
 }
 
-/* Mobile Responsive query existing max-width: 768px er moddheo rakhte paren ba algada code */
-@media (max-width: 768px) {
-    .job-card {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 20px;
-    }
-    .job-action-area {
-        width: 100%;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #edf2f7;
-        padding-top: 15px;
-    }
-    .career-filter input, .career-filter select {
-        width: 100%;
-    }
-}
-
-/* footer */
-
-
-.main-footer {
-    background-color: #1a202c; 
-    color: #e2e8f0;
-    padding: 60px 0 0 0;
-    margin-top: 60px;
-    font-family: 'Segoe UI', sans-serif;
-    border-top: 4px solid var(--secondary-color);
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 40px;
-    padding-bottom: 40px;
-}
-
-/* Brand Panel Formatting Layout */
-.footer-logo-area {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 18px;
-}
-
-.footer-logo {
-    height: 40px;
-    width: 40px;
-}
-
-.footer-logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #ffffff;
-}
-
-.brand-desc {
-    color: #a0aec0;
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 0;
-    max-width: 340px;
-}
-
-/* Links Columns Structural Setup Layout */
-.footer-links-panel h4 {
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0 0 20px 0;
-    position: relative;
-}
-
-.footer-links-panel h4::after {
-    content: '';
-    display: block;
-    width: 35px;
-    height: 2px;
-    background-color: var(--secondary-color);
-    margin-top: 8px;
-}
-
-.footer-links-panel ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.footer-links-panel ul li {
-    margin-bottom: 12px;
-}
-
-.footer-links-panel ul li a {
-    color: #a0aec0;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.2s ease, padding-left 0.2s ease;
-}
-
-.footer-links-panel ul li a:hover {
-    color: var(--secondary-color);
-    padding-left: 4px;
-}
-
-/* Bottom Copyright Bar Layer Alignment strip */
-.footer-bottom-bar {
-    background-color: #141923;
-    padding: 20px 0;
-    border-top: 1px solid #2d3748;
-    margin-top: 20px;
-}
-
-.bottom-bar-flex {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.bottom-bar-flex p {
-    font-size: 13px;
-    color: #718096;
-    margin: 0;
-}
-
-.footer-legal-links a {
-    color: #718096;
-    text-decoration: none;
-    font-size: 13px;
-    margin-left: 20px;
-    transition: color 0.2s;
-}
-
-.footer-legal-links a:hover {
-    color: #e2e8f0;
-}
-
-/* Mobile Devices (max-width: 768px) Grid optimization mapping rules */
-@media (max-width: 768px) {
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-        text-align: left;
-    }
-    .bottom-bar-flex {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .footer-legal-links {
-        margin-left: 0;
-    }
-    .footer-legal-links a {
-        margin-left: 0;
-        margin-right: 20px;
-    }
-}
-
-
-/* User Profile/Login Option Specific Styles */
+/*  User Profile Dropdown Navigation */
 .user-profile-wrapper {
     position: relative;
     display: inline-block;
@@ -808,7 +624,6 @@ body {
     color: var(--text-light);
 }
 
-/* Dropdown Floating Menu Box Panel Style */
 .profile-dropdown-menu {
     display: none; 
     position: absolute;
@@ -829,7 +644,6 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Dropdown active text fields options */
 .dropdown-user-info {
     padding: 15px;
     background-color: var(--bg-light);
@@ -875,16 +689,249 @@ body {
     color: #e53e3e !important;
 }
 
-/* Mobile responsive fixes */
+/*  Footer Section*/
+.main-footer {
+    background-color: #1a202c; 
+    color: #e2e8f0;
+    padding: 60px 0 0 0;
+    margin-top: 60px;
+    font-family: 'Segoe UI', sans-serif;
+    border-top: 4px solid var(--secondary-color);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.footer-logo {
+    height: 40px;
+    width: 40px;
+}
+
+.footer-logo-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.brand-desc {
+    color: #a0aec0;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    max-width: 340px;
+}
+
+.footer-links-panel h4 {
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    position: relative;
+}
+
+.footer-links-panel h4::after {
+    content: '';
+    display: block;
+    width: 35px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    margin-top: 8px;
+}
+
+.footer-links-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links-panel ul li {
+    margin-bottom: 12px;
+}
+
+.footer-links-panel ul li a {
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-links-panel ul li a:hover {
+    color: var(--secondary-color);
+    padding-left: 4px;
+}
+
+.footer-bottom-bar {
+    background-color: #141923;
+    padding: 20px 0;
+    border-top: 1px solid #2d3748;
+    margin-top: 20px;
+}
+
+.bottom-bar-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.bottom-bar-flex p {
+    font-size: 13px;
+    color: #718096;
+    margin: 0;
+}
+
+.footer-legal-links a {
+    color: #718096;
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 20px;
+    transition: color 0.2s;
+}
+
+.footer-legal-links a:hover {
+    color: #e2e8f0;
+}
+
+/*  Responsive Media Queries  */
+
+/* Tablet Optimization (Max-width: 992px) */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 2.8rem;
+    }
+    
+   
+    .about-grid {
+        grid-template-columns: 1fr; 
+        gap: 20px;
+    }
+}
+
+/* Mobile Viewports (Max-width: 768px) */
 @media (max-width: 768px) {
+    /* Navbar Alignment */
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 10px;
+        text-align: center;
+    }
+    
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .nav-links a {
+        margin: 0;
+        display: block;
+        width: 100%;
+        padding: 5px 0;
+    }
+
+    /* Hero Banner Mobile Styling */
+    .hero-banner {
+        height: auto;
+        padding: 120px 20px 80px 20px; 
+    }
+
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+    }
+
+    .cta-container {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%; 
+        text-align: center;
+    }
+
+    .btn-secondary {
+        margin-left: 0;
+    }
+
+    .stories-grid {
+        grid-template-columns: 1fr; 
+    }
+
+    /* Directory Filter Mobile layout */
+    .directory-filter {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 15px;
+        gap: 10px;
+    }
+    
+    .directory-filter input, 
+    .directory-filter select,
+    .directory-filter button {
+        width: 100%;
+        min-width: 0 !important;
+    }
+
+    /* Career Filters Mobile Layout */
+    .career-filter {
+        flex-direction: column;
+        padding: 0 15px;
+        gap: 10px;
+    }
+
+    .career-filter input, 
+    .career-filter select,
+    .career-filter button {
+        width: 100% !important;
+        min-width: 0 !important;
+    }
+
+    /* Jobs List Mobile Adjustments */
+    .job-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+    
+    .job-action-area {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid #edf2f7;
+        padding-top: 15px;
+    }
+
+    /* User Profile Dropdown Menu Mobile Fix */
     .user-profile-wrapper {
         margin-left: 0;
         margin-top: 10px;
         width: 100%;
     }
+    
     .nav-profile-trigger {
         justify-content: center;
     }
+    
     .profile-dropdown-menu {
         position: relative;
         top: 5px;
@@ -892,5 +939,26 @@ body {
         width: 100%;
         box-shadow: none;
         border: 1px solid #edf2f7;
+    }
+
+    /* Footer Mobile Grid Map styling */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        text-align: left;
+    }
+    
+    .bottom-bar-flex {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .footer-legal-links {
+        margin-left: 0;
+    }
+    
+    .footer-legal-links a {
+        margin-left: 0;
+        margin-right: 20px;
     }
 }
