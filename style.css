@@ -882,11 +882,13 @@ section, footer {
     }
 
     /* ৩. মেনু লিংকগুলোর ফুল উইডথ প্যানেল */
+  /* মোবাইলের মিডিয়া কোয়েরি ব্লকের ভেতরে এটি পেস্ট করুন */
+@media (max-width: 768px) {
     .nav-links {
-        display: none;
+        display: none !important; /* মোবাইলে ডিফল্টভাবে মেনুটি লুকিয়ে থাকবে */
         flex-direction: column;
         position: absolute;
-        top: 60px;
+        top: 70px; /* আপনার হেডারের হাইট অনুযায়ী এটি কম-বেশি করতে পারেন */
         left: 0;
         width: 100% !important;
         background-color: #ffffff;
@@ -894,24 +896,22 @@ section, footer {
         padding: 15px 0;
         z-index: 999;
         box-sizing: border-box;
+        align-items: flex-start; /* মেনুর আইটেমগুলো বামে সারিবদ্ধ করার জন্য */
     }
 
-    /* বাটন ক্লিক করলে ক্লাস একটিভ হওয়ার স্ক্রিপ্ট */
-    .nav-links.active {
-        display: flex !important;
-        animation: slideDownMenu 0.25s ease-out forwards;
-    }
-    
     .nav-links a {
+        display: block;
         width: 100%;
-        text-align: center;
-        margin: 0 !important;
-        padding: 12px 0;
-        font-size: 15px;
-        border-bottom: 1px solid #f7fafc;
-        color: var(--text-dark);
-        text-decoration: none;
+        padding: 12px 24px;
+        margin-left: 0; /* ডেস্কটপের মার্জিনটি মোবাইলে শূন্য করে দেওয়া হলো */
+        box-sizing: border-box;
     }
+
+    /* থ্রি-ডট বাটনে ক্লিক করলে মোবাইলে মেনু দেখানোর জন্য */
+    .nav-links.active {
+        display: flex !important; /* এটি অবশ্যই 'flex' হিসেবে শো করবে */
+    }
+}
 
     .nav-links a:last-of-type {
         border-bottom: none;
